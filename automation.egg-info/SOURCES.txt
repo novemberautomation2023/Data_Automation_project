@@ -1,0 +1,15 @@
+setup.py
+Config/__init__.py
+Result/__init__.py
+Source_files/__init__.py
+Utility/__init__.py
+Utility/data_read.py
+Utility/database_read_lib.py
+Utility/files_read_lib.py
+Utility/validation_lib.py
+Utility/write_db_file_lib.py
+automation.egg-info/PKG-INFO
+automation.egg-info/SOURCES.txt
+automation.egg-info/dependency_links.txt
+automation.egg-info/requires.txt
+automation.egg-info/top_level.txt

@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: automation
+Version: 1.1
+Summary: Data test automation
+Home-page: https://github.com/novemberautomation2023/Data_validation_tool.git
+Author: sreeni
+Author-email: test@gmail.com
+Requires-Dist: pytest
+Requires-Dist: openpyxl
