@@ -30,6 +30,8 @@ setup(
 #pip install setuptool
 #python setup.py sdist bdist_wheel
 
+#python setup.py install
+
 # Metadata and Project Information:
 #
 # name: The name of your project.
