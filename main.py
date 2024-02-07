@@ -1,31 +1,19 @@
-
-
+from Utility.validation_lib import *
 import pkg_resources
 
-
-from Utility.files_read_lib import *
-from Utility.validation_lib import *
-
 from pyspark.sql import SparkSession
-import pandas as pd
-import json
-import openpyxl
 from pyspark.sql.functions import collect_set
 
-jar_path = pkg_resources.resource_filename('jars', 'postgresql-42.2.5.jar')
 spark = SparkSession.builder.master("local")\
-    .appName("test") \
-    .config("spark.jars",jar_path)\
-    .config("spark.driver.extraClassPath",jar_path) \
-    .config("spark.executor.extraClassPath",jar_path) \
-    .getOrCreate()
+                    .appName("test")\
+                    .getOrCreate()
 
-template_path = pkg_resources.resource_filename('Config', 'Master_Test_Template.xlsx')
-
+template_path = "/Users/harish/PycharmProjects/Data_Automation_project/Config/Master_Test_Template.xlsx"
 Test_cases = pd.read_excel(template_path)
 run_test_case = Test_cases.loc[(Test_cases.execution_ind=='Y')]
 
 print(run_test_case)
+
 
 print(run_test_case.columns)
 
@@ -37,8 +25,13 @@ validations = df.groupBy('source', 'source_type',
        'key_col_list', 'null_col_list', 'unique_col_list').agg(collect_set('validation_Type').alias('validation_Type'))
 
 validations.show(truncate=False)
-
+#
 validations = validations.collect()
+
+for i in validations:
+    print(i['source'],i['source_type'],i['target'],i['target_type'],i['validation_Type'])
+    for val in  i['validation_Type']:
+        print(i['source'],i['source_type'],i['target'],i['target_type'],val)
 
 Out = {"TC_ID":[],
        "test_Case_Name":[],
@@ -59,8 +52,8 @@ schema= ["TC_ID",
          "Number_of_failed_Records",
          "column",
          "Status"]
-
-
+#
+#
 for row in validations:
     if row['source_type'] == 'table':
         source = read_data(row['source_type'], row['source'], spark=spark, database=row['source_db_name'],sql_path=row['target_transformation_query_path'])
