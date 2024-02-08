@@ -28,12 +28,8 @@ template_path = pkg_resources.resource_filename("Config","Master_Test_Template.x
 #template_path = "/Users/harish/PycharmProjects/Data_Automation_project/Config/Master_Test_Template.xlsx"
 Test_cases = pd.read_excel(template_path)
 run_test_case = Test_cases.loc[(Test_cases.execution_ind=='Y')]
-
 print(run_test_case)
-
-
 print(run_test_case.columns)
-
 df = spark.createDataFrame(run_test_case)
 
 validations = df.groupBy('source', 'source_type',
