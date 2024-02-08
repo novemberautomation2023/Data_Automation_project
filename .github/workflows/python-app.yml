@@ -9,6 +9,23 @@ on:
   pull_request:
     branches: [ "master" ]
 
+#on:#
+#  workflow_dispatch:
+#    inputs:
+#      environment:
+#        type: choice
+#        options:
+#          - dev
+#          - qa
+#          - prod
+#        description: Deployment environment
+#      space:
+#        type: choice
+#        options:
+#          - synthetic
+#          - actual
+#        description: Deployment environment
+
 permissions:
   contents: read
 
@@ -23,10 +40,15 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+#    - name: Build wheel and install
+#      run: |
+#        python -m pip install --user --upgrade build
+#        python -m build
+#        #pip install .
+#        find ./dist/*.whl | xargs pip install
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Test with pytest
+        if [ -f requirement.txt ]; then pip install -r requirement.txt; fi
+    - name: Execute python file
       run: python main.py
