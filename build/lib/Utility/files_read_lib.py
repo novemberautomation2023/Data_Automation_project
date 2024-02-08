@@ -2,7 +2,7 @@ import logging
 import os
 import json
 
-import pkg_resources
+import  pkg_resources
 
 from pyspark.sql.types import StructType
 

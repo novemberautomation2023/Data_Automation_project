@@ -41,10 +41,10 @@ validations.show(truncate=False)
 #
 validations = validations.collect()
 
-for i in validations:
-    print(i['schema_path'])#,i['source_type'],i['target'],i['target_type'],i['validation_Type'])
-    # for val in  i['validation_Type']:
-    #     print(i['source'],i['source_type'],i['target'],i['target_type'],val)
+# for i in validations:
+#     print(i['schema_path'])#,i['source_type'],i['target'],i['target_type'],i['validation_Type'])
+#     # for val in  i['validation_Type']:
+#     #     print(i['source'],i['source_type'],i['target'],i['target_type'],val)
 
 Out = {"TC_ID":[],
        "test_Case_Name":[],
@@ -80,7 +80,9 @@ for row in validations:
         target = read_data(row['target_type'], row['target'], spark=spark, database=row['target_db_name'],sql_path=row['target_transformation_query_path'])
     else:
         target_path = pkg_resources.resource_filename('Source_Files', row['target'])
+        print(source_path)
         target = read_data(row['target_type'], target_path, spark)
+
     source.show(n=2)
     target.show(n=2)
     for validation in row['validation_Type']:
