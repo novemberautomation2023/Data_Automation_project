@@ -1,7 +1,9 @@
 setup.py
 Config/__init__.py
 Result/__init__.py
+Source_Files/__init__.py
 Source_files/__init__.py
+Transformations_queries/__init__.py
 Utility/__init__.py
 Utility/data_read.py
 Utility/database_read_lib.py
@@ -13,3 +15,6 @@ automation.egg-info/SOURCES.txt
 automation.egg-info/dependency_links.txt
 automation.egg-info/requires.txt
 automation.egg-info/top_level.txt
+jars/__init__.py
+schema/__init__.py
+schema/test6.py

@@ -25,7 +25,7 @@ source = spark.read.option("header", True).csv('/Users/harish/PycharmProjects/Da
 
 source.printSchema()
 
-with open("/Users/harish/PycharmProjects/Data_Automation_project/schem/contact_info_schema.json", 'r') as f:
+with open("/schema/contact_info_schema.json", 'r') as f:
     schema = StructType.fromJson(json.load(f))
 
 print(schema)

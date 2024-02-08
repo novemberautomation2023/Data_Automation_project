@@ -3,13 +3,13 @@
   "fields": [
     {
       "metadata": {},
-      "name": "sno",
+      "name": "Identifier",
       "nullable": false,
       "type": "integer"
     },
     {
       "metadata": {},
-      "name": "familyname",
+      "name": "Surname",
       "nullable": true,
       "type": "string"
     },
