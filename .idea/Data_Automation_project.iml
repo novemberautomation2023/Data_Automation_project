@@ -4,9 +4,11 @@
     <content url="file://$USER_HOME$/Downloads/spark-3.4.1-bin-hadoop3/python" />
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+      <excludeFolder url="file://$MODULE_DIR$/venv2" />
     </content>
     <content url="jar://$USER_HOME$/Downloads/spark-3.4.1-bin-hadoop3/python/lib/py4j-0.10.9.7-src.zip!/" />
-    <orderEntry type="jdk" jdkName="Python 3.8 (venv)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.11 (Data_Automation_project) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
