@@ -21,7 +21,7 @@ df = spark.createDataFrame([1,2],('id','id1'))
 
 df.show()
 
-source = spark.read.option("header", True).csv('/Users/harish/PycharmProjects/Data_validation_tool/Source_Files/Contact_info.csv')
+source = spark.read.option("header", True).csv('/Users/harish/PycharmProjects/Data_validation_tool/source_files/Contact_info.csv')
 
 source.printSchema()
 
@@ -30,5 +30,5 @@ with open("/schema/contact_info_schema.json", 'r') as f:
 
 print(schema)
 
-source_with_ext_schema = spark.read.schema(schema).option("header", True).csv('/Users/harish/PycharmProjects/Data_validation_tool/Source_Files/Contact_info.csv')
+source_with_ext_schema = spark.read.schema(schema).option("header", True).csv('/Users/harish/PycharmProjects/Data_validation_tool/source_files/Contact_info.csv')
 source_with_ext_schema.printSchema()

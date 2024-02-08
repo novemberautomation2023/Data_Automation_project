@@ -71,7 +71,7 @@ for row in validations:
     if row['source_type'] == 'table':
         source = read_data(row['source_type'], row['source'], spark=spark, database=row['source_db_name'],sql_path=row['target_transformation_query_path'])
     else:
-        source_path = pkg_resources.resource_filename('Source_Files', row['source'])
+        source_path = pkg_resources.resource_filename('source_files', row['source'])
         print(source_path)
         source = read_data(row['source_type'], source_path, spark,schema=row['schema_path'])
 
@@ -79,7 +79,7 @@ for row in validations:
         print(row['target_type'], row['target'], row['target_db_name'])
         target = read_data(row['target_type'], row['target'], spark=spark, database=row['target_db_name'],sql_path=row['target_transformation_query_path'])
     else:
-        target_path = pkg_resources.resource_filename('Source_Files', row['target'])
+        target_path = pkg_resources.resource_filename('source_files', row['target'])
         print(source_path)
         target = read_data(row['target_type'], target_path, spark)
 
