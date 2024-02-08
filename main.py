@@ -72,6 +72,7 @@ for row in validations:
         source = read_data(row['source_type'], row['source'], spark=spark, database=row['source_db_name'],sql_path=row['target_transformation_query_path'])
     else:
         source_path = pkg_resources.resource_filename('Source_Files', row['source'])
+        print(source_path)
         source = read_data(row['source_type'], source_path, spark,schema=row['schema_path'])
 
     if row['target_type'] == 'table':
