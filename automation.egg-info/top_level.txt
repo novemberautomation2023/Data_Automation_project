@@ -1,7 +1,0 @@
-Config
-Result
-Source_Files
-Transformations_queries
-Utility
-jars
-schema
