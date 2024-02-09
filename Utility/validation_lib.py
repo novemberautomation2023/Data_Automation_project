@@ -151,7 +151,7 @@ def data_compare( source, target,keycolumn,Out):
             keycolumn.remove(column)
             temp_join = temp_source.join(temp_target,keycolumn,how='full_outer')
             temp_join.withColumn("comparison", when(col('source_'+column) == col("target_"+column),\
-                                                    "True" ).otherwise("False")).filter("comparison == False")
+                                                    "True" ).otherwise("False")).filter("comparison == False").show()
 
 
 def compare(source, target,countQA, keyList,Out):

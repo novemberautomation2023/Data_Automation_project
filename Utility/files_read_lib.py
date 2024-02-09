@@ -1,4 +1,3 @@
-
 import logging
 import os
 import json
@@ -6,17 +5,18 @@ import json
 import pkg_resources
 
 logging.basicConfig(filename="newfile.log",
-                    level=logging.INFO, #NDIWEC
+                    level=logging.INFO,  # NDIWEC
                     filemode='w',
                     format='%(asctime)s:%(levelname)s:%(message)s')
 logger = logging.getLogger()
 
-def read_data(format,path,spark, delimiter=None, multiline=None, sql_path=None,database=None):
+
+def read_data(format, path, spark, delimiter=None, multiline=None, sql_path=None, database=None):
     if format.lower() == 'csv':
         if delimiter is None:
-            df = spark.read.option("header", True).option("delimiter",",").csv(path)
+            df = spark.read.option("header", True).option("delimiter", ",").csv(path)
             logger.info("CSV file has read successfully from the below path" + path)
-        elif delimiter=='|':
+        elif delimiter == '|':
             df = spark.read.option("header", True).option("delimiter", "|").csv(path)
             logger.info("CSV file has read successfully from the below path" + path)
 
@@ -39,7 +39,7 @@ def read_data(format,path,spark, delimiter=None, multiline=None, sql_path=None,d
 
     elif format.lower() == 'table':
         conf_file_path = pkg_resources.resource_filename('Config', 'config.json')
-        with open(conf_file_path,'r') as f:
+        with open(conf_file_path, 'r') as f:
             config_data = json.loads(f.read())[database]
         if sql_path is not None:
             sql_path = pkg_resources.resource_filename('Transformations_queries', sql_path)
@@ -56,17 +56,3 @@ def read_data(format,path,spark, delimiter=None, multiline=None, sql_path=None,d
     else:
         logger.critical("File format is not found ")
     return df
-
-
-
-
-
-
-
-
-
-
-
-
-
-

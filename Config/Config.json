@@ -1,8 +1,8 @@
 {
    "oracle_db": {
-     "url": "jdbc:oracle:thin:@//localhost:1521/freepdb1",
-     "user": "scott",
-     "password": "tiger",
+     "url": "jdbc:oracle:thin:@//localhost:1521/XE",
+     "user": "system",
+     "password": "shreyas",
      "driver": "oracle.jdbc.driver.OracleDriver"
    },
   "postgre_db":

@@ -1,0 +1,20 @@
+select
+    cast(Identifier as decimal(10)) Identifier,
+    Surname,
+    upper(given_name) given_name,
+    upper(middle_initial) middle_initial,
+    suffix,
+    Primary_street_number,
+    primary_street_name,
+    city,
+    state,
+    cast(zipcode as decimal(10)) zipcode,
+    Primary_street_number_prev,
+    primary_street_name_prev,
+    city_prev,
+    state_prev,
+    zipcode_prev,
+    Email,
+    translate(Phone,'+-','') phone,
+    rpad(birthmonth,8,'0') birthmonth
+    from ETL_SHREENI_PROJ.contact_info_raw
