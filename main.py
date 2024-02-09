@@ -1,13 +1,3 @@
-# import os
-# import sys
-# # print(os.getcwd())
-# # sys.path.append(os.getcwd())
-# #
-# #sys.path.clear()
-# sys.path.append(os.getcwd())
-# #
-# print(sys.path[0]+'jars/postgresql-42.2.5.jar')
-
 
 
 from Utility.validation_lib import *
@@ -41,10 +31,6 @@ validations.show(truncate=False)
 #
 validations = validations.collect()
 
-# for i in validations:
-#     print(i['schema_path'])#,i['source_type'],i['target'],i['target_type'],i['validation_Type'])
-#     # for val in  i['validation_Type']:
-#     #     print(i['source'],i['source_type'],i['target'],i['target_type'],val)
 
 Out = {"TC_ID":[],
        "test_Case_Name":[],
@@ -65,8 +51,9 @@ schema= ["TC_ID",
          "Number_of_failed_Records",
          "column",
          "Status"]
-#
-#
+
+
+
 for row in validations:
     if row['source_type'] == 'table':
         source = read_data(row['source_type'], row['source'], spark=spark, database=row['source_db_name'],sql_path=row['target_transformation_query_path'])
