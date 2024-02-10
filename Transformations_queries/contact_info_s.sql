@@ -1,1 +1,19 @@
-select * from df
+SELECT cast("Identifier"  as number(10)) Identifier,
+    upper("Surname") Surname,
+    "given_name" given_name ,
+    "middle_initial" middle_initial,
+    "suffix" suffix ,
+    "Primary_street_number" Primary_street_number,
+    "primary_street_name" primary_street_name,
+    "city" city,
+    "state"  state,
+    cast("zipcode"  as number(10)) zipcode,
+    "Primary_street_number_prev" Primary_street_number_prev,
+    "primary_street_name_prev" primary_street_name_prev,
+    "city_prev" city_prev,
+    "state_prev"  state_prev ,
+    "zipcode_prev"  zipcode_prev,
+    "Email" Email ,
+    translate("Phone" ,'+-','') phone,
+    "birthmonth" birthmonth
+    from contact_info_raw

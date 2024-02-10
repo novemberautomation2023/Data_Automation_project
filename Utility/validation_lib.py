@@ -137,13 +137,11 @@ def records_present_only_in_source(source,target,keyList,Out,row):
 
 def data_compare( source, target,keycolumn,Out):
     keycolumn = keycolumn.split(",")
-    for colname in source.columns:
-        source = source.withColumn(colname, trim(col(colname)))
-
-    for colname in target.columns:
-        target = target.withColumn(colname, trim(col(colname)))
+    print(keycolumn)
     columnList = source.columns
+    print(columnList)
     for column in columnList:
+        print(column)
         if column not in keycolumn:
             keycolumn.append(column)
             temp_source= source.select(keycolumn).withColumnRenamed(column,"source_"+column)
@@ -151,7 +149,7 @@ def data_compare( source, target,keycolumn,Out):
             keycolumn.remove(column)
             temp_join = temp_source.join(temp_target,keycolumn,how='full_outer')
             temp_join.withColumn("comparison", when(col('source_'+column) == col("target_"+column),\
-                                                    "True" ).otherwise("False")).filter("comparison == False")
+                                                    "True" ).otherwise("False")).filter("comparison == False").show()
 
 
 def compare(source, target,countQA, keyList,Out):

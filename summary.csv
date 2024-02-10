@@ -1,8 +1,3 @@
 ,TC_ID,test_Case_Name,Source_name,target_name,Number_of_source_Records,Number_of_target_Records,Number_of_failed_Records,column,Status
-0,4,Null_value_check,NA,Contact_info_t.csv,NA,12,1.0,Identifier,fail
-1,4,Null_value_check,NA,Contact_info_t.csv,NA,12,1.0,Surname,fail
-2,5,records_present_only_in_target,Contact_info.csv,Contact_info_t.csv,10,12,1.0,Identifier,fail
-3,3,Uniquess_check,NA,Contact_info_t.csv,NA,12,1.0,Identifier,fail
-4,2,duplicate_validation,NA,Contact_info_t.csv,NA,12,1.0,Identifier,fail
-5,6,records_present_only_in_source,Contact_info.csv,Contact_info_t.csv,10,12,0.0,Identifier,pass
-6,1,Count_validation,Contact_info.csv,Contact_info_t.csv,10,12,2.0,Identifier,fail
+0,2,duplicate_validation,NA,contact_info_bronze,NA,10,0,IDENTIFIER,pass
+1,1,Count_validation,contact_info_raw,contact_info_bronze,10,10,0,IDENTIFIER,pass

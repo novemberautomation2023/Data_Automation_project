@@ -56,7 +56,7 @@ schema= ["TC_ID",
 
 for row in validations:
     if row['source_type'] == 'table':
-        source = read_data(row['source_type'], row['source'], spark=spark, database=row['source_db_name'],sql_path=row['target_transformation_query_path'])
+        source = read_data(row['source_type'], row['source'], spark=spark, database=row['source_db_name'],sql_path=row['source_transformation_query_path'])
     else:
         source_path = pkg_resources.resource_filename('source_files', row['source'])
         print("Source_path",source_path)

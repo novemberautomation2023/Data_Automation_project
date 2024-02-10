@@ -52,3 +52,31 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Execute python file
       run: python main.py input.environment
+
+
+#1. Push:
+#git push is used to upload local repository content to a remote repository.
+#Example: git push origin main pushes the commits from your local main branch to the remote repository named origin.
+#2. Pull:
+#git pull is used to fetch and download content from a remote repository and immediately update the local repository to match that content.
+#Example: git pull origin main fetches changes from the main branch of the remote repository named origin and merges them into the current branch.
+#3. Merge:
+#git merge is used to combine changes from one branch into another.
+#Example: git merge feature_branch merges the changes from the feature_branch into the current branch.
+#4. Fetch:
+#git fetch is used to download content from a remote repository without integrating it into your working branch.
+#Example: git fetch origin retrieves all branches from the remote repository named origin so you can inspect them before merging.
+#5. Update:
+#There's no direct git update command in Git, but git pull and git fetch can be considered as commands that update your local repository with changes from a remote repository.
+#6. Rebase:
+#git rebase is used to move or combine a sequence of commits to a new base commit. It's often used to maintain a cleaner and linear project history.
+#Example: git rebase main moves your commits to the tip of the main branch, rewriting the commit history.
+#7. Checkout:
+#git checkout is used to switch branches or restore working tree files.
+#Example: git checkout main switches to the main branch.
+#8. Clone:
+#git clone is used to create a copy of a remote repository on your local machine.
+#Example: git clone <repository-url> creates a local copy of the repository specified by <repository-url>.
+#10. Commit:
+#git commit is used to record changes to the repository. It captures a snapshot of the changes staged using git add.
+#Example: git commit -m "Your commit message" creates a commit with the specified message.
