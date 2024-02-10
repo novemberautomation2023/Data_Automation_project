@@ -1,0 +1,3 @@
+,TC_ID,test_Case_Name,Source_name,target_name,Number_of_source_Records,Number_of_target_Records,Number_of_failed_Records,column,Status
+0,2,duplicate_validation,NA,ETL_SHREENI_PROJ.contact_info_raw,NA,12,1,Identifier,fail
+1,1,Count_validation,Contact_info.csv,ETL_SHREENI_PROJ.contact_info_raw,12,12,0,Identifier,pass
