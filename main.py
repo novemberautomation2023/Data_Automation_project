@@ -21,6 +21,7 @@ run_test_case = Test_cases.loc[(Test_cases.execution_ind=='Y')]
 print(run_test_case)
 print(run_test_case.columns)
 df = spark.createDataFrame(run_test_case)
+df.show()
 
 validations = df.groupBy('source', 'source_type',
        'source_db_name','schema_path', 'source_transformation_query_path', 'target',
