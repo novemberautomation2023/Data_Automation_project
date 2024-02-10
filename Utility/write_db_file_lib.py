@@ -16,3 +16,7 @@ def write_output(TC_ID,Test_Case_Name,Number_of_source_Records,
     Out["Number_of_failed_Records"].append(Number_of_failed_Records)
 
 #This is pull request verification
+
+def write_output2(TC_ID,Test_Case_Name,Number_of_source_Records,
+                 Number_of_target_Records,Status,Number_of_failed_Records,Out):
+    Out["TC_ID"].append(TC_ID)
