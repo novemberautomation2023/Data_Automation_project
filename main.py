@@ -19,8 +19,6 @@ template_path = pkg_resources.resource_filename("Config","Master_Test_Template.x
 Test_cases = pd.read_excel(template_path)
 run_test_case = Test_cases.loc[(Test_cases.execution_ind=='Y')]
 print(run_test_case)
-# print(run_test_case.columns)
-# df = spark.createDataFrame(run_test_case)
 #
 # validations = df.groupBy('source', 'source_type',
 #        'source_db_name','schema_path', 'source_transformation_query_path', 'target',
@@ -98,5 +96,4 @@ print(run_test_case)
 #
 # df.to_csv("summary.csv")
 #
-#
-# spark.createDataFrame(df).show()
+
