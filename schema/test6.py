@@ -1,34 +1,19 @@
-
-import json
 from pyspark.sql import SparkSession
-import pandas as pd
-import json
-from pyspark.sql.functions import collect_set
-from pyspark.sql import SparkSession
-import pandas as pd
-import json
 
-from pyspark.sql.types import StructType
+# Create a SparkSession
+spark = SparkSession.builder \
+    .appName("example") \
+    .getOrCreate()
 
+# Create a DataFrame
+data = [("John", 25, "Engineer"), ("Alice", 30, "Manager"), ("Bob", 35, "Developer")]
+df = spark.createDataFrame(data, ["Name", "Age", "Occupation"])
 
-spark = SparkSession.builder.master("local").appName("test_execution")\
-     .config("spark.jars", "/Users/harish/Downloads/spark-3.4.1-bin-hadoop3/jars/ojdbc8-21.5.0.0.jar") \
-     .config("spark.driver.extraClassPath", "/Users/harish/Downloads/spark-3.4.1-bin-hadoop3/jars/ojdbc8-21.5.0.0.jar") \
-     .config("spark.executor.extraClassPath","/Users/harish/Downloads/spark-3.4.1-bin-hadoop3/jars/ojdbc8-21.5.0.0.jar") \
-     .getOrCreate()
+# Rename the columns "Age" and "Occupation" to "Years" and "Job", respectively
+new_df = df \
+    .withColumnRenamed("Age", "Years") \
+    .withColumnRenamed("Occupation", "Job")
 
-df = spark.createDataFrame([1,2],('id','id1'))
-
+# Show the original and new DataFrames
 df.show()
-
-source = spark.read.option("header", True).csv('/Users/harish/PycharmProjects/Data_validation_tool/source_files/Contact_info.csv')
-
-source.printSchema()
-
-with open("/schema/contact_info_schema.json", 'r') as f:
-    schema = StructType.fromJson(json.load(f))
-
-print(schema)
-
-source_with_ext_schema = spark.read.schema(schema).option("header", True).csv('/Users/harish/PycharmProjects/Data_validation_tool/source_files/Contact_info.csv')
-source_with_ext_schema.printSchema()
+new_df.show()
